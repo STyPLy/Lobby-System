@@ -59,12 +59,3 @@ CreateParty.OnServerEvent:Connect(function(plr:Player,isPublic:boolean)
 	end
 	
 end)
-
-
-game.Players.PlayerAdded:Connect(function(plr)
-	plr.CharacterAdded:Wait()
-	task.wait(5)
-	-- TESTING PURPOSES ONLY TODO:-REMOVE-WHEN-FINISHED
-	local party = Lobby:CreateParty(plr,true)
-	
-end)
