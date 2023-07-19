@@ -7,7 +7,7 @@
 This system works using RemoteEvents. All RemoteEvents are created by the LobbyScript and are located inside a folder named "RemoteEvents" inside of ReplicatedStorage.
 
 # Example code (Client Side/Local Script):
-```
+```lua
   local ReplicatedStorage = game:GetService("ReplicatedStorage")
   local RemoteEvents = ReplicatedStorage:WaitForChild("RemoteEvents")
   local CreateParty = RemoteEvents.CreateParty
