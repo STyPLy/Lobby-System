@@ -15,6 +15,8 @@ LeaveParty = Instance.new("RemoteEvent",remotes)
 LeaveParty.Name = "LeaveParty"
 UpdateListings = Instance.new("RemoteEvent",remotes)
 UpdateListings.Name = "UpdateListings"
+StartGame = Instance.new("RemoteEvent",remotes)
+StartGame.Name = "StartGame"
 
 local LobbyScript = require(game:GetService('ServerStorage').Modules.Lobby)
 local Lobby = LobbyScript.new()
@@ -30,6 +32,15 @@ JoinParty.OnServerEvent:Connect(function(plr,key)
 	end
 	
 end)
+
+StartGame.OnServerEvent:Connect(function(plr,key)
+	local party = Lobby:GetAllParties()[key]
+
+	if plr == party.Leader then
+		party:Start()
+	end
+end)
+
 
 LeaveParty.OnServerEvent:Connect(function(plr)
 	print("Party Leave Request from", plr.Name)
